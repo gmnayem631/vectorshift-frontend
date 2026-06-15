@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# PipelineAI — Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A visual pipeline builder built with React and ReactFlow. Users can drag and drop nodes onto a canvas, connect them to form a data pipeline, and submit the pipeline for analysis.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+- **React** — UI framework
+- **ReactFlow** — drag and drop canvas and node/edge management
+- **Zustand** — global state management
+- **Tailwind CSS** — utility-first styling
+- **DaisyUI** — component library for modals
+- **React Hot Toast** — toast notifications
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 9 draggable node types — Input, Output, Text, LLM, API Call, Condition, Note, Data Transform, File Upload
+- Reusable `BaseNode` abstraction — all nodes share a single base component
+- Dynamic Text Node — auto-resizes as you type and generates input handles from `{{variable}}` patterns
+- Connect nodes with animated edges to build a pipeline
+- Submit pipeline to backend and view node count, edge count, and pipeline status in a modal
+- Clear canvas button to reset and start fresh
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+```bash
+cd frontend
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+App runs on `http://localhost:3000`
 
-### `npm run build`
+## Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+src/
+├── nodes/
+│ ├── BaseNode.jsx # Shared base component for all nodes
+│ ├── inputNode.jsx
+│ ├── outputNode.jsx
+│ ├── llmNode.jsx
+│ ├── textNode.jsx
+│ ├── apiCallNode.jsx
+│ ├── conditionNode.jsx
+│ ├── noteNode.jsx
+│ ├── dataTransformNode.jsx
+│ └── fileUploadNode.jsx
+├── App.js # Root layout
+├── ui.js # ReactFlow canvas
+├── toolbar.js # Sidebar with draggable nodes
+├── draggableNode.js # Draggable node button component
+├── submit.js # Submit button and result modal
+└── store.js # Zustand global state
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Live Demo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[https://vectorship-pipeline.netlify.app](https://vectorship-pipeline.netlify.app)
 
-### `npm run eject`
+## Backend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The backend repository can be found at [vectorshift-backend](https://github.com/gmnayem631/vectorshift-backend)
