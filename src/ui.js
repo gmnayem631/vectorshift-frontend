@@ -1,6 +1,4 @@
 // ui.js
-// Displays the drag-and-drop UI
-// --------------------------------------------------
 
 import { useState, useRef, useCallback } from "react";
 import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
@@ -94,7 +92,7 @@ export const PipelineUI = () => {
         addNode(newNode);
       }
     },
-    [reactFlowInstance],
+    [reactFlowInstance, addNode, getNodeID],
   );
 
   const onDragOver = useCallback((event) => {

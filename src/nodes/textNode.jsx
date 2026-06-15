@@ -1,7 +1,6 @@
 // textNode.js
 
 import { useEffect, useRef, useState } from "react";
-import BaseNode from "./BaseNode";
 import { Handle, Position } from "reactflow";
 
 export const TextNode = ({ id, data }) => {
