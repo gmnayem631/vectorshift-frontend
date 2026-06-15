@@ -32,6 +32,7 @@ App runs on `http://localhost:3000`
 
 ## Project Structure
 
+```
 src/
 ├── nodes/
 │ ├── BaseNode.jsx # Shared base component for all nodes
@@ -50,6 +51,7 @@ src/
 ├── draggableNode.js # Draggable node button component
 ├── submit.js # Submit button and result modal
 └── store.js # Zustand global state
+```
 
 ## Live Demo
 
