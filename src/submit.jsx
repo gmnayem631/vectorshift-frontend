@@ -24,14 +24,17 @@ export const SubmitButton = () => {
     const loadingToast = toast.loading("Analyzing pipeline...");
 
     try {
-      const response = await fetch("http://localhost:8000/pipelines/parse", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          nodes: nodes.map((n) => ({ id: n.id })),
-          edges: edges.map((e) => ({ source: e.source, target: e.target })),
-        }),
-      });
+      const response = await fetch(
+        "https://vectorshift-backend-xt2y.onrender.com/pipelines/parse",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            nodes: nodes.map((n) => ({ id: n.id })),
+            edges: edges.map((e) => ({ source: e.source, target: e.target })),
+          }),
+        },
+      );
 
       const data = await response.json();
       setResult(data);
@@ -51,7 +54,7 @@ export const SubmitButton = () => {
 
   return (
     <>
-      {/* ── Submit Button ── */}
+      {/* submit button */}
       <button
         type="button"
         onClick={handleSubmit}
